@@ -17,6 +17,7 @@ export const meta: MetaFunction = () => ({
 });
 
 export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: "https://rsms.me/inter/inter.css"},
   { rel: "stylesheet", href: styles }
 ]
 
@@ -27,7 +28,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="h-full bg-primary-900 text-white p-0 m-0">
+      <body className="h-screen bg-gradient-radial text-white p-0 m-0">
         <Outlet />
         <ScrollRestoration />
         <Scripts />

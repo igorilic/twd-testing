@@ -68,9 +68,17 @@ module.exports = plugin.withOptions(
   function (options) {
     const { colorThemes } = options
     checkForValidColorThemesInput(colorThemes)
+    console.log(colorThemes)
+    console.log(getColorUtilitiesWithCssVariableReferences(Object.values(colorThemes)[0]))
     return {
       theme: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+        },
         extend: {
+          backgroundImage: {
+            'gradient-radial': 'radial-gradient(70.49% 70.49% at 50% 10.41%, #18699F 0%, #0F4B73 100%)'
+          },
           colors: getColorUtilitiesWithCssVariableReferences(Object.values(colorThemes)[0]),
         },
       },
