@@ -39,7 +39,8 @@ function getColorUtilitiesWithCssVariableReferences(input, path = []) {
 // Check for valid color themes input
 function checkForValidColorThemesInput(input) {
   const isValid =
-    typeof input === 'object' && Object.keys(input).some((key) => typeof input[key] === 'object')
+    typeof input === 'object' &&
+    Object.keys(input).some((key) => typeof input[key] === 'object')
   if (!isValid) {
     throw new Error(
       'The Multi-Theme Plugin expects a `colorThemes` option passed to it, which contains at least one theme object.'
@@ -56,11 +57,11 @@ module.exports = plugin.withOptions(
     checkForValidColorThemesInput(colorThemes)
     return function ({ addBase }) {
       addBase({
-        ':root': getCssVariableDeclarations(Object.values(colorThemes)[0]),
+        ':root': getCssVariableDeclarations(Object.values(colorThemes)[0])
       })
       Object.entries(colorThemes).forEach(([key, value]) => {
         addBase({
-          [`[data-theme="${key}"]`]: getCssVariableDeclarations(value),
+          [`[data-theme="${key}"]`]: getCssVariableDeclarations(value)
         })
       })
     }
@@ -69,19 +70,24 @@ module.exports = plugin.withOptions(
     const { colorThemes } = options
     checkForValidColorThemesInput(colorThemes)
     console.log(colorThemes)
-    console.log(getColorUtilitiesWithCssVariableReferences(Object.values(colorThemes)[0]))
+    console.log(
+      getColorUtilitiesWithCssVariableReferences(Object.values(colorThemes)[0])
+    )
     return {
       theme: {
         fontFamily: {
-          sans: ['Inter', 'sans-serif'],
+          sans: ['Inter', 'sans-serif']
         },
         extend: {
           backgroundImage: {
-            'gradient-radial': 'radial-gradient(70.49% 70.49% at 50% 10.41%, #18699F 0%, #0F4B73 100%)'
+            'gradient-radial':
+              'radial-gradient(70.49% 70.49% at 50% 10.41%, #18699F 0%, #0F4B73 100%)'
           },
-          colors: getColorUtilitiesWithCssVariableReferences(Object.values(colorThemes)[0]),
-        },
-      },
+          colors: getColorUtilitiesWithCssVariableReferences(
+            Object.values(colorThemes)[0]
+          )
+        }
+      }
     }
   }
 )

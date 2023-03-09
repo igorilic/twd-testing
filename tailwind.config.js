@@ -3,9 +3,9 @@ const themesPlugin = require('./themes/theme.plugin.js')
 const themes = require('./themes/themes.json')
 
 module.exports = {
-  content: ["./app/**/*.{ts,tsx,jsx,js}"],
+  content: ['./app/**/*.{ts,tsx,jsx,js}'],
   theme: {
-    extend: {},
+    extend: {}
   },
-  plugins: [themesPlugin({ colorThemes: themes})],
+  plugins: [themesPlugin({ colorThemes: themes })]
 }
