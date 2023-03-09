@@ -9,6 +9,7 @@
     "dev:css": "npm run generate:css -- --watch",
     "dev:remix": "remix dev",
     "generate:css": "npx tailwindcss -o ./app/tailwind.css",
+    "format": "prettier --write .",
     "typecheck": "tsc"
   },
   "dependencies": {
